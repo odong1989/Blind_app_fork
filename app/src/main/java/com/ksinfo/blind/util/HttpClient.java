@@ -10,6 +10,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -94,7 +95,7 @@ public class HttpClient {
             OutputStream outputStream = null;
             try {
                 outputStream = connection.getOutputStream();
-                outputStream.write(parameter.getBytes("UTF-8"));
+                outputStream.write(parameter.getBytes(StandardCharsets.UTF_8));
                 outputStream.flush();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -154,9 +155,9 @@ public class HttpClient {
 
     public static class Builder {
 
-        private Map<String, String> parameters;
-        private String method;
-        private String url;
+        private final Map<String, String> parameters;
+        private final String method;
+        private final String url;
 
         public String getMethod() {
             return method;

@@ -18,4 +18,16 @@
         android:layout_height="wrap_content"
         android:text=""/>
 
+    <Button
+        android:id="@+id/join"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="会員登録Sample Pageへ" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ログインSample Pageへ" />
+
 </LinearLayout>

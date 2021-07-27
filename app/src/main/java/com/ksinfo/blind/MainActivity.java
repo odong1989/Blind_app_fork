@@ -2,13 +2,15 @@ package com.ksinfo.blind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.ksinfo.blind.util.HttpClient;
+import com.ksinfo.blind.member.LoginActivity;
+import com.ksinfo.blind.member.MemberJoinActivity;
+import com.ksinfo.blind.util.HttpClientAccessor;
 
 import java.util.HashMap;
 
@@ -21,7 +23,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
     TextView textView;
     Disposable backgroundTask;
-    public static String ip = "192.168.111.4"; // Your ip address
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,45 +30,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn_test = (Button)findViewById(R.id.btn1);
+        Button move_join = (Button)findViewById(R.id.join);
+        Button move_login = (Button)findViewById(R.id.login);
         textView = (TextView)findViewById(R.id.text1);
 
         btn_test.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 try{
-                    java.util.HashMap<String, String> params = new HashMap<String, String>();
+                    java.util.HashMap<String, String> params = new HashMap<>();
                     params.put("content", "abc");
                     connectionTest(params);
 
                 } catch (Exception e){
                     e.printStackTrace();
                 }
+            }
+        });
 
+        move_join.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MemberJoinActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        move_login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
 
     private void connectionTest(HashMap<String, String> params) {
-        HashMap<String, String> map = new HashMap<>();
-
         //onPreExecute(task 시작 전 실행될 코드 여기에 작성)
         backgroundTask = Observable.fromCallable(() -> {
             //doInBackground(task에서 실행할 코드 여기에 작성)
-            HttpClient.Builder http = new HttpClient.Builder
-                    ("POST", "http://" + ip + ":8282/blind/testAndroidAccess");
-
-            // Parameter Setting
-            http.addAllParameters(params);
-
-            HttpClient post = http.create();
-            post.request();
-
-            int statusCode = post.getHttpStatusCode();
-            String body = post.getBody();
-            Gson gson = new Gson();
-            java.util.HashMap<String, String> data = gson.fromJson(body, java.util.HashMap.class);
-
-            return data;
+            return HttpClientAccessor.accessByPost("testAndroidAccess", params);
 
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<HashMap<String, String>>() {
             @Override
