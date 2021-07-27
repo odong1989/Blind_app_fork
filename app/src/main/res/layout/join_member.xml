@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@+string/会社評価匿名コミュニティ(Join Sample)"
+            android:text="会社評価匿名コミュニティ(Join Sample)"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -47,7 +47,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
                 android:background="#70708E"
-                android:contentDescription="@+string/testImage"
+                android:contentDescription="testImage"
                 android:src="@drawable/ks_logo" />
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
-                android:text="@+string/XXXXXサービスにようこそ！"
+                android:text="XXXXXサービスにようこそ！"
                 android:textColor="#000000" />
 
             <EditText
@@ -80,7 +80,7 @@
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="E-Mail"
-                android:autofillHints="@+string/E-Mail"
+                android:autofillHints="E-Mail"
                 android:inputType="textPersonName"
                 android:maxLength="50"
                 android:paddingLeft="10dp"
