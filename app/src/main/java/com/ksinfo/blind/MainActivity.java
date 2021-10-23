@@ -1,6 +1,7 @@
 package com.ksinfo.blind;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.ksinfo.blind.member.LoginActivity;
 import com.ksinfo.blind.member.MemberJoinActivity;
 import com.ksinfo.blind.util.HttpClientAccessor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -24,11 +26,45 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     Disposable backgroundTask;
 
+    ViewPager2 viewPager2;
+    ArrayList<ViewPagerItem> viewPagerItemArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        viewPager2 = findViewById(R.id.viewpager);
+        int[] images = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d, R.drawable.e};
+        String[] heading = {"アイデア", "自由な会話", "コネクト", "趣味", "楽な会話"};
+        String[] desc = {getString(R.string.a_desc),
+                getString(R.string.b_desc),
+                getString(R.string.c_desc),
+                getString(R.string.d_desc)
+                , getString(R.string.e_desc)};
+
+        viewPagerItemArrayList = new ArrayList<>();
+
+        for (int i = 0; i < images.length; i++) {
+
+            ViewPagerItem viewPagerItem = new ViewPagerItem(images[i], heading[i], desc[i]);
+            viewPagerItemArrayList.add(viewPagerItem);
+
+        }
+
+        VPAdapter vpAdapter = new VPAdapter(viewPagerItemArrayList);
+
+        viewPager2.setAdapter(vpAdapter);
+
+        viewPager2.setClipToPadding(false);
+
+        viewPager2.setClipChildren(false);
+
+        viewPager2.setOffscreenPageLimit(2);
+
+        viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+        /*
         Button btn_test = (Button)findViewById(R.id.btn1);
         Button move_join = (Button)findViewById(R.id.join);
         Button move_login = (Button)findViewById(R.id.login);
@@ -80,5 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 backgroundTask.dispose();
             }
         });
+    }
+     */
     }
 }
