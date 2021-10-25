@@ -131,52 +131,6 @@
                 android:text="権限を選んでください。"
                 android:textColor="#000000" />
 
-            <RadioGroup
-                android:id="@+id/role"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:id="@+id/normalMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="一般会員"
-                android:textColor="#000000" />
-
-            <RadioButton
-                android:id="@+id/regularMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="正会員"
-                android:textColor="#000000" />
-
-            <RadioButton
-                android:id="@+id/amdinMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="管理者"
-                android:textColor="#000000" />
-
-            </RadioGroup>
-
             <Button
                 android:id="@+id/signBtn"
                 android:layout_width="match_parent"
@@ -187,6 +141,28 @@
                 android:background="#323151"
                 android:text="Sign In"
                 android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="login Page"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/loginPassBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="pass(noLogin/only_Test)"
+                android:textColor="#FFFFFF" />signBtn
 
         </LinearLayout>
 

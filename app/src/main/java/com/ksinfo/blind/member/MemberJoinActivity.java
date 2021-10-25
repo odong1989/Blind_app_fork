@@ -30,6 +30,9 @@ public class MemberJoinActivity extends AppCompatActivity {
         setContentView(R.layout.join_member);
 
         Button signIn = (Button)findViewById(R.id.signBtn);
+        Button logIn = (Button)findViewById(R.id.loginBtn);
+
+
 
         signIn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,13 +43,17 @@ public class MemberJoinActivity extends AppCompatActivity {
                     EditText email = (EditText) findViewById(R.id.emailEt);
                     EditText nick = (EditText) findViewById(R.id.nickEt);
                     EditText password = (EditText) findViewById(R.id.pwEt);
-                    RadioGroup role = (RadioGroup) findViewById(R.id.role);
-                    int selectedId = role.getCheckedRadioButtonId();
-                    RadioButton selectedRole = (RadioButton) findViewById(selectedId);
+
+
 
                     params.put("username", email.getText().toString());
                     params.put("nickName", nick.getText().toString());
                     params.put("password", password.getText().toString());
+
+                    /*
+                    RadioGroup role = (RadioGroup) findViewById(R.id.role);
+                    int selectedId = role.getCheckedRadioButtonId();
+                    RadioButton selectedRole = (RadioButton) findViewById(selectedId);
 
                     if (selectedRole.getText().toString().equals("一般会員")) {
                         params.put("role", "NM");
@@ -55,7 +62,7 @@ public class MemberJoinActivity extends AppCompatActivity {
                     } else if (selectedRole.getText().toString().equals("管理者")) {
                         params.put("role", "SV");
                     }
-
+                    */
                     joinMember(params);
 
                 } catch (Exception e){

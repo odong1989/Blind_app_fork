@@ -64,12 +64,29 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
 
+        Button move_join = (Button)findViewById(R.id.join);
+        move_join.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MemberJoinActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         /*
         Button btn_test = (Button)findViewById(R.id.btn1);
-        Button move_join = (Button)findViewById(R.id.join);
-        Button move_login = (Button)findViewById(R.id.login);
-        textView = (TextView)findViewById(R.id.text1);
 
+        Button move_login = (Button)findViewById(R.id.login);
+        move_login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        textView = (TextView)findViewById(R.id.text1);
         btn_test.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -84,21 +101,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        move_join.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MemberJoinActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        move_login.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
     }
 
     private void connectionTest(HashMap<String, String> params) {
