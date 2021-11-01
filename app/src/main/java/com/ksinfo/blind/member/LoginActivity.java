@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
+import com.ksinfo.blind.home.Home;
 import com.ksinfo.blind.util.HttpClientAccessor;
 
 import java.util.HashMap;
@@ -30,9 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
 
         Button login = (Button)findViewById(R.id.loginBtn);
-        Button passAccess = (Button)findViewById(R.id.passBtn);
-
-
         login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -53,6 +51,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        Button passAccess = (Button)findViewById(R.id.passBtn);
+        passAccess.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+            }
+        });
+
+        /*
         passAccess.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -64,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 
     }
 
