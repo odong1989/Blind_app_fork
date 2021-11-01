@@ -37,14 +37,13 @@ public class Home extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
         TabLayout tabs = findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("통화기록"));
-        tabs.addTab(tabs.newTab().setText("스팸기록"));
-        tabs.addTab(tabs.newTab().setText("연락처"));
+        tabs.addTab(tabs.newTab().setText("採用"));
+        tabs.addTab(tabs.newTab().setText("トピック"));
+        tabs.addTab(tabs.newTab().setText("職群ラウンジ"));
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
-                Log.d("MainActivity", "선택된 탭 : " + position);
 
                 Fragment selected = null;
                 if (position == 0) {
