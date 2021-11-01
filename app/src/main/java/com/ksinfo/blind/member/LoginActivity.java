@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
+import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
 import com.ksinfo.blind.home.Home;
 import com.ksinfo.blind.util.HttpClientAccessor;
 
@@ -59,20 +60,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        /*
-        passAccess.setOnClickListener(new View.OnClickListener(){
+        Button move_annualIncome = (Button)findViewById(R.id.annualIncomeBtn);
+        move_annualIncome.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                try{
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://220.80.99.247:8282/blind/main"));
+                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
                 startActivity(intent);
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
             }
         });
-        */
+
+
 
     }
 
