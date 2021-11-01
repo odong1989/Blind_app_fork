@@ -64,20 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
 
-        Button move_join = (Button)findViewById(R.id.join);
-        move_join.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MemberJoinActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        /*
-        Button btn_test = (Button)findViewById(R.id.btn1);
-
-        Button move_login = (Button)findViewById(R.id.login);
+        Button move_login = (Button)findViewById(R.id.loginBtn);
         move_login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -85,43 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        textView = (TextView)findViewById(R.id.text1);
-        btn_test.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                try{
-                    java.util.HashMap<String, String> params = new HashMap<>();
-                    params.put("content", "abc");
-                    connectionTest(params);
-
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-
-
-
-
-    }
-
-    private void connectionTest(HashMap<String, String> params) {
-        //onPreExecute(task 시작 전 실행될 코드 여기에 작성)
-        backgroundTask = Observable.fromCallable(() -> {
-            //doInBackground(task에서 실행할 코드 여기에 작성)
-            return HttpClientAccessor.accessByPost("testAndroidAccess", params);
-
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<HashMap<String, String>>() {
-            @Override
-            public void accept(HashMap<String, String> map) {
-                //onPostExecute(task 끝난 후 실행될 코드 여기에 작성)
-                textView.setText(map.get("message"));
-
-                backgroundTask.dispose();
-            }
-        });
-    }
-     */
     }
 }

@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
 
         Button login = (Button)findViewById(R.id.loginBtn);
+        Button passAccess = (Button)findViewById(R.id.passBtn);
+
 
         login.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -50,6 +52,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        passAccess.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                try{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://220.80.99.247:8282/blind/main"));
+                startActivity(intent);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     private void login(HashMap<String, String> params) {
