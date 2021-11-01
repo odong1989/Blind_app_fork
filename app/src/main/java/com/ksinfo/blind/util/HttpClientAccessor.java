@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 
 public class HttpClientAccessor extends HttpClient {
-    private static final String ip = "192.168.111.4";
+    private static final String ip = "220.80.99.247";
 
     public static HashMap<String, String> accessByPost(String url, HashMap<String, String> params) throws Exception {
         Builder http = new Builder
