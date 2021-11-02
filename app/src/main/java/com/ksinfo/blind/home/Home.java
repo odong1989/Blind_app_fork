@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.tabs.TabLayout;
 import com.ksinfo.blind.R;
+import com.ksinfo.blind.mypage.Mypage;
 
 public class Home extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class Home extends AppCompatActivity {
     Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
+
+    Mypage mypage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,43 @@ public class Home extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+        /*
+        mypage = new Mypage();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, mypage).commit();
 
+        TabLayout bottom_navigation = findViewById(R.id.bottom_navigation);
+        bottom_navigation.addTab(tabs.newTab().setText("1"));
+        bottom_navigation.addTab(tabs.newTab().setText("2"));
+        bottom_navigation.addTab(tabs.newTab().setText("3"));
+        bottom_navigation.addTab(tabs.newTab().setText("4"));
+        bottom_navigation.addTab(tabs.newTab().setText("5"));
+        bottom_navigation.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab bottom_navigation) {
+                int position = bottom_navigation.getPosition();
+
+                Fragment selected = null;
+                if (position == 0) {
+                    selected = mypage;
+                }
+
+                //else if (position == 1) {
+                //    selected = fragment2;
+                //}
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, selected).commit();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+        */
     }
 
 }
