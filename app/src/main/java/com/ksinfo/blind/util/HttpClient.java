@@ -59,9 +59,11 @@ public class HttpClient {
             uc.setDoInput(true);    // 스트림 입력 설정 -- 기본적으로 입력 스트림
 
             return (HttpURLConnection) uc;
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }
+//        catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         return null;

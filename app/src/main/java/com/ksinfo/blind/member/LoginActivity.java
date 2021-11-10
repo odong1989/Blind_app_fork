@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
+import com.ksinfo.blind.board.TopicMainActivity;
 import com.ksinfo.blind.home.Home;
 import com.ksinfo.blind.util.HttpClientAccessor;
 
@@ -30,6 +31,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        Button move_topic_main = findViewById(R.id.topicMain);
+        move_topic_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TopicMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button login = (Button)findViewById(R.id.loginBtn);
         login.setOnClickListener(new View.OnClickListener(){
