@@ -7,24 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.ksinfo.blind.member.LoginActivity;
-import com.ksinfo.blind.member.MemberJoinActivity;
-import com.ksinfo.blind.util.HttpClientAccessor;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
-    Disposable backgroundTask;
 
     ViewPager2 viewPager2;
     ArrayList<ViewPagerItem> viewPagerItemArrayList;

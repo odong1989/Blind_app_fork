@@ -1,6 +1,7 @@
 package com.ksinfo.blind.annualincome;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,23 +11,49 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
+import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
+import com.ksinfo.blind.board.vo.BoardVO;
+import com.ksinfo.blind.util.RetrofitFactory;
+
+import java.util.List;
 
 import io.reactivex.rxjava3.disposables.Disposable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
     Disposable backgroundTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TextView textView;
-        EditText editText;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.annual_income_rank_calculator);
+
+        CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
+
+        companyJobGroupApi.getJobGroupListAll().enqueue(new Callback<CompanyJobGroupVO>() {
+            @Override
+            public void onResponse(@NonNull Call<CompanyJobGroupVO> call, Response<CompanyJobGroupVO> response) {
+                if (response.isSuccessful()) {
+                    CompanyJobGroupVO getJobGroupListAll = response.body();
+                    Log.d("JobGroupListAll", getJobGroupListAll.toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<CompanyJobGroupVO> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+
+        TextView textView;
+        EditText editText;
 
         //annual_income_rank_calculator.xml画面を構成する要素とコネクト。
         textView = (TextView) findViewById(R.id.title);      //テキスト’契約年俸’

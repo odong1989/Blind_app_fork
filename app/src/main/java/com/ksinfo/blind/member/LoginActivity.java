@@ -32,11 +32,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+
         Button move_topic_main = findViewById(R.id.topicMain);
         move_topic_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TopicMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button move_annualIncomeCalculator = (Button)findViewById(R.id.annualIncomeCalculatorBtn);
+        move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,14 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button move_annualIncome = (Button)findViewById(R.id.annualIncomeBtn);
-        move_annualIncome.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 

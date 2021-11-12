@@ -17,8 +17,6 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class TopicMainActivity extends AppCompatActivity {
 	Disposable backgroundTask;
@@ -28,11 +26,8 @@ public class TopicMainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.topic_main);
 
-//		.addConverterFactory(ScalarsConverterFactory.create())
-		// Scalars : 가져올 값이 (1)단순한 string (2) 0,1,2,3등 간단숫자, (3) true/false 등의 형태로 구분되는 방식의 맵핑.
-		// 여기선 JSON형태로 할거라 밑의 JacksonConverterFactory를 사용.
-
 		BoardApi boardApi = RetrofitFactory.createJsonRetrofit().create(BoardApi.class);
+
 		boardApi.getBoardList().enqueue(new Callback<List<BoardVO>>() {
 			@Override
 			public void onResponse(@NonNull Call<List<BoardVO>> call, Response<List<BoardVO>> response) {
