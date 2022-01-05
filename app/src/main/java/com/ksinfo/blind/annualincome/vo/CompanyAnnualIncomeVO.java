@@ -1,9 +1,9 @@
 package com.ksinfo.blind.annualincome.vo;
 
 public final class CompanyAnnualIncomeVO {
-	private final int minAnnualIncome; //직군별 최저임금
-	private final int avgAnnualIncome; //직군별 평균임금
-	private final int maxAnnualIncome; //직군별 최대임금
+	private final int minAnnualIncome;
+	private final int avgAnnualIncome;
+	private final int maxAnnualIncome;
 
 	public CompanyAnnualIncomeVO(int minAnnualIncome, int avgAnnualIncome, int maxAnnualIncome) {
 		this.minAnnualIncome = minAnnualIncome;
